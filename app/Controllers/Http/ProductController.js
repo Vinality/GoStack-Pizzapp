@@ -12,6 +12,12 @@ class ProductController {
 
     return prod;
   }
+
+  async show() {
+    const menu = await Product.query().with('type.sizes').fetch();
+
+    return menu;
+  }
 }
 
 module.exports = ProductController;

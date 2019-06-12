@@ -12,7 +12,6 @@ class SessionController {
       auth: token,
       username: user.username,
       email: user.email,
-      firstAccess: user.firstAccess
     };
   }
 }
