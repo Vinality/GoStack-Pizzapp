@@ -4,7 +4,7 @@ export const Types = {
   LOGIN_FAILURE: "users/LOGIN_FAILURE",
 };
 
-export default function users(state = [], action) {
+export default function users(state = {}, action) {
   switch (action.type) {
     case Types.LOGIN_REQUEST:
       return {
@@ -12,7 +12,8 @@ export default function users(state = [], action) {
       };
     case Types.LOGIN_SUCCESS:
       return {
-        ...state
+        ...state,
+        name: action.payload.username
       }
     case Types.LOGIN_FAILURE:
       return {
@@ -29,9 +30,9 @@ export const Creators = {
     payload: { email, password }
   }),
 
-  UserLoginSuccess: data => ({
+  UserLoginSuccess: username => ({
     type: Types.LOGIN_SUCCESS,
-    payload: { data }
+    payload: { username }
   }),
 
   UserLoginFailure: error => ({

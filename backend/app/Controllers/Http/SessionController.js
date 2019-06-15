@@ -12,6 +12,7 @@ class SessionController {
       auth: token,
       username: user.username,
       email: user.email,
+      isCust: user.isCustomer,
     };
   }
 }
