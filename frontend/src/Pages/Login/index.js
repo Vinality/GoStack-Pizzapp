@@ -23,19 +23,19 @@ class Login extends Component {
       <Container>
         <Form>
           <Logo src={img}/>
-          <Input 
+          <Input
             placeholder="Email"
-            type="email" 
-            value={this.state.email} 
+            type="email"
+            value={this.state.email}
             onChange={e => this.setState({email: e.target.value})}
           />
-          <Input 
-            placeholder="Senha" 
-            type="password" 
-            value={this.state.pass} 
+          <Input
+            placeholder="Senha"
+            type="password"
+            value={this.state.pass}
             onChange={e => this.setState({pass: e.target.value})}
           />
-        <Button type='submit' onClick={this.handleLogin}>Login</Button>  
+        <Button type='submit' onClick={this.handleLogin}>Login</Button>
         </Form>
       </Container>
     );

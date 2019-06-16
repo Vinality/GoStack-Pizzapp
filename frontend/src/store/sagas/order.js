@@ -17,14 +17,28 @@ export function* GetOrders(action) {
       {
         when: order.created_at,
         user: order.user.username,
-        size: order.size.size,
-        price: order.size.price,
-        type: order.size.types.type,
-        product: order.size.types.product.name
+        products: [
+          {
+            size: order.size.size,
+            price: order.size.price,
+            type: order.size.types.type,
+            product: order.size.types.product.name,
+          },
+          {
+            size: order.size2 ? order.size2.size : null,
+            price: order.size2 ? order.size2.price : null,
+            type: order.size2 ? order.size2.types.type : null,
+            product: order.size2 ? order.size2.types.product.name : null,
+          },
+          {
+            size: order.size3 ? order.size3.size : null,
+            price: order.size3 ? order.size3.price : null,
+            type: order.size3 ? order.size3.types.type : null,
+            product: order.size3 ? order.size3.types.product.name : null
+          }
+        ]
       }
     ));
-
-    console.tron.log(orders);
 
     yield put(OrderActions.GetOrdersSuccess(orders));
   } catch (err) {

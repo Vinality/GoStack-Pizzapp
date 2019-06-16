@@ -14,7 +14,20 @@ class OrderSchema extends Schema {
         .inTable("sizes")
         .onUpdate("CASCADE")
         .onDelete("SET NULL");
-
+      table
+        .integer("size_id2")
+        .unsigned()
+        .references("id")
+        .inTable("sizes")
+        .onUpdate("CASCADE")
+        .onDelete("SET NULL");
+      table
+        .integer("size_id3")
+        .unsigned()
+        .references("id")
+        .inTable("sizes")
+        .onUpdate("CASCADE")
+        .onDelete("SET NULL");
       table
         .integer("user_id")
         .unsigned()

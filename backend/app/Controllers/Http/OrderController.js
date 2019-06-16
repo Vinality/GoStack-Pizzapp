@@ -2,12 +2,14 @@
 
 const Order = use("App/Models/Order");
 const User = use("App/Models/User");
+const Size = use("App/Models/Size");
 
 class OrderController {
   async store({request, auth}) {
     const { id } = await auth.getUser();
-    const data = request.only(['size_id'])
-    const order = Order.create({ size_id: data.size_id, user_id: id});
+    const data = request.post()
+
+    const order = Order.create({ ...data, user_id: id});
 
     return order;
   }
@@ -17,7 +19,7 @@ class OrderController {
     const user = await User.find(id);
 
     if(user.isCustomer === false) {
-      const allOrders = await Order.query().with('size.types.product').with('user').fetch();
+      const allOrders = await Order.query().with('size.types.product').with('size2.types.product').with('size3.types.product').with('user').fetch();
 
       return allOrders;
     }

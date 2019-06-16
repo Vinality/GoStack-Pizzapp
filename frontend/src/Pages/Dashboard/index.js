@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 // import { Container } from './styles';
 import Header from '../../components/Header'
+import OrderCard from '../../components/OrderCard'
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -12,9 +13,14 @@ class Dashboard extends Component {
   }
 
   render() {
+    const { orders } = this.props.orders;
+    console.tron.log(orders);
     return (
       <div>
         <Header />
+        {orders && orders.map(order => (
+          <OrderCard order={order} />
+        ))}
       </div>
     );
   }
@@ -22,7 +28,7 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-  orders: state.order.orders,
+  orders: state.order,
 });
 
 const mapDispatchToProps = dispatch =>

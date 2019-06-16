@@ -12,7 +12,6 @@ export default function order(state = {}, action) {
       };
     case Types.ORDER_SUCCESS:
       return {
-        ...state,
         orders: action.payload.orders
       }
     case Types.ORDER_FAILURE:
