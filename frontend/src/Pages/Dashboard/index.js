@@ -3,7 +3,7 @@ import logo from '../../resources/logo.svg';
 import { Creators as OrderActions } from "../../store/ducks/order";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-// import { Container } from './styles';
+import { Container, Orders } from './styles';
 import Header from '../../components/Header'
 import OrderCard from '../../components/OrderCard'
 
@@ -16,12 +16,15 @@ class Dashboard extends Component {
     const { orders } = this.props.orders;
     console.tron.log(orders);
     return (
-      <div>
+      <Container>
         <Header />
-        {orders && orders.map(order => (
-          <OrderCard order={order} />
-        ))}
-      </div>
+        <h1 className='pedidos'>Últimos Pedidos</h1>
+        <Orders>
+          {orders && orders.map(order => (
+            <OrderCard order={order} />
+          ))}
+        </Orders>
+      </Container>
     );
   }
 

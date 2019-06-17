@@ -12,7 +12,7 @@ class Order extends Model {
   }
 
   size3() {
-    return this.hasOne('App/Models/Size', 'size_id3o' ,'id');
+    return this.hasOne('App/Models/Size', 'size_id3' ,'id');
   }
 
   user() {
