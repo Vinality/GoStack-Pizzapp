@@ -22,7 +22,8 @@ export const Title = styled.h1`
 `
 
 export const Type = styled.p`
-  font-size: 13px
+  width: 100%;
+  font-size: 13px;
 `
 
 export const Total = styled.h1`
@@ -32,10 +33,16 @@ export const Total = styled.h1`
 export const Size = styled.p`
   font-size: 11px;
   color: #706e7b;
+`
 
+export const Img = styled.img`
+  height: 60px;
+  width: 60px;
+  margin-right: 5px;
 `
 
 export const Product = styled.div`
+  display: flex;
   padding: 8px;
   margin-top: 15px;
   margin-left: 10px;

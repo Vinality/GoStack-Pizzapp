@@ -23,7 +23,7 @@ class OrderController {
 
       return allOrders;
     }
-    const data = await Order.query().where('user_id', id).with('size.types.product').fetch();
+    const data = await Order.query().where('user_id', id).with('size.types.product').with('size2.types.product').with('size3.types.product').fetch();
 
     return data;
   }

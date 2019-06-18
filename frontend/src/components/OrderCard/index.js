@@ -1,4 +1,4 @@
-import { Container, Product, Title, Size, Type, Total } from './styles';
+import { Container, Product, Title, Size, Type, Total, Img } from './styles';
 
 import React, { Component } from 'react';
 
@@ -16,8 +16,11 @@ class OrderCard extends Component {
             total += prod.price;
             return(
               <Product>
-                <Type>{prod.product} {prod.type}</Type>
-                <Size>{prod.size}: R${prod.price}</Size>
+                <Img src={prod.image_url}/>
+                <div>
+                  <Type>{prod.product} {prod.type}</Type>
+                  <Size>{prod.size}: R${prod.price}</Size>
+                </div>
               </Product>
             )
           }

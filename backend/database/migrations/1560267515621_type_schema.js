@@ -16,6 +16,7 @@ class TypeSchema extends Schema {
         .inTable("products")
         .onUpdate("CASCADE")
         .onDelete("SET NULL");
+      table.string('image_url', 50).notNullable();
     });
   }
 

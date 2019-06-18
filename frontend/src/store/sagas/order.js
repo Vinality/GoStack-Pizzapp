@@ -23,18 +23,21 @@ export function* GetOrders(action) {
             price: order.size.price,
             type: order.size.types.type,
             product: order.size.types.product.name,
+            image_url: order.size.types.image_url
           },
           {
             size: order.size2 ? order.size2.size : null,
             price: order.size2 ? order.size2.price : null,
             type: order.size2 ? order.size2.types.type : null,
             product: order.size2 ? order.size2.types.product.name : null,
+            image_url: order.size2 ? order.size2.types.image_url : null
           },
           {
             size: order.size3 ? order.size3.size : null,
             price: order.size3 ? order.size3.price : null,
             type: order.size3 ? order.size3.types.type : null,
-            product: order.size3 ? order.size3.types.product.name : null
+            product: order.size3 ? order.size3.types.product.name : null,
+            image_url: order.size3 ? order.size3.types.image_url : null
           }
         ]
       }

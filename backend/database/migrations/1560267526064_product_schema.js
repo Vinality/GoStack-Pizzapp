@@ -9,6 +9,7 @@ class ProductSchema extends Schema {
       table.increments();
       table.timestamps();
       table.string("name").notNullable();
+      table.string('image_url', 50).notNullable();
     });
   }
 
