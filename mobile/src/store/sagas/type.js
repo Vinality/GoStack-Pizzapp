@@ -3,30 +3,31 @@ import api from "../../services/api";
 import { navigate } from "../../services/navigation";
 import { AsyncStorage } from 'react-native';
 
-import { Creators as ProductAction, Types as ProductTypes } from "../ducks/products";
+import { Creators as TypeAction, Types as TypeTypes } from "../ducks/type";
 
-export function* GetProducts(action) {
+export function* GetTypes(action) {
   try {
     const token = yield call(getToken, null);
     const config = {
       headers: { Authorization: "bearer " + token }
     };
 
-    const { data } = yield call(api.get, '/menu', config);
+    const { data } = yield call(api.get, `/menu/${action.payload.id}`, config);
 
 
-    const products = data.map(product => (
+    const types = data.map(type => (
       {
-        product_id: product.id,
-        name: product.name,
-        image_url: product.image_url,
-        description: product.description
+        type_id: type.id,
+        type: type.type,
+        image_url: type.image_url
       }
     ));
 
-    yield put(ProductAction.productSuccess(products));
+    yield put(TypeAction.typeSuccess(types));
+
+    // navigate("Sizes");
   } catch (error) {
-    yield put(ProductAction.productFailed());
+    yield put(TypeAction.typeFailed());
   }
 }
 

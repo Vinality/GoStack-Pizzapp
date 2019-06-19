@@ -17,7 +17,7 @@ class Products extends Component {
   }
 
   render() {
-    const { products } = this.props;
+    const { products, navigation } = this.props;
     return (
       <Background source={headerbg}>
         <ProductList>
@@ -27,7 +27,7 @@ class Products extends Component {
             <Icon2 name="shoppingcart" size={25} color="#fff" />
           </Header>
           {products && products.map(product => (
-            <ProductCard product={product} key={product.id}/>
+            <ProductCard product={product} key={product.id} navigation={navigation}/>
           ))}
         </ProductList>
       </Background>

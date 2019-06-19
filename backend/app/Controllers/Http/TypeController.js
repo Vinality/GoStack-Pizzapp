@@ -14,8 +14,8 @@ class TypeController {
   }
 
   async show({ params }) {
-    const id = params.get();
-    const menu = await Type.query().where('product_id', id.product_id).fetch();
+    const url = params
+    const menu = await Type.query().where('product_id', url.type).fetch();
 
     return menu;
   }
