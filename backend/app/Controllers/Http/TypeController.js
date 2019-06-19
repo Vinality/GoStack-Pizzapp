@@ -12,6 +12,13 @@ class TypeController {
 
     return type;
   }
+
+  async show({ params }) {
+    const id = params.get();
+    const menu = await Type.query().where('product_id', id.product_id).fetch();
+
+    return menu;
+  }
 }
 
 module.exports = TypeController;

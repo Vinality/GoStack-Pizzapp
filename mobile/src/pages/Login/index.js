@@ -5,7 +5,7 @@ import { bindActionCreators } from "redux";
 import { Creators as UserActions } from "../../store/ducks/user";
 import { navigate } from "../../services/navigation";
 import logo from '../../resources/logo.png';
-import fundo from '../../resources/fundo.jpg';
+import fundo from '../../resources/fundo.png';
 
 import { Container, Input, Button, ButtonText, Error, Img, Background, TextSign } from "./styles";
 

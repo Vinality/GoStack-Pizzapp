@@ -14,7 +14,7 @@ class ProductController {
   }
 
   async show() {
-    const menu = await Product.query().with('type.sizes').fetch();
+    const menu = await Product.query().fetch();
 
     return menu;
   }

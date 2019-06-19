@@ -1,6 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import api from "../../services/api";
 import { navigate } from "../../services/navigation";
+import { AsyncStorage } from 'react-native';
 
 import { Creators as UserAction, Types as UserTypes } from "../ducks/user";
 
@@ -11,7 +12,7 @@ export function* UserLogin(action) {
     yield call(storeToken, data.auth.token);
     yield put(UserAction.userSuccess(data.username));
 
-    navigate("Menu");
+    navigate("Products");
   } catch (error) {
     yield put(UserAction.userFailed());
   }
@@ -20,7 +21,6 @@ export function* UserLogin(action) {
 export function* UserSignup(action) {
   try {
     const { username, email, password } = action.payload;
-    console.tron.log(action.payload);
     yield call(api.post, '/users', { username, email, password });
     yield put(UserAction.signupSuccess());
 
