@@ -1,28 +1,32 @@
 // ACTION TYPES
 
 export const Types = {
-  request: "TYPE_REQUEST",
-  success: "TYPE_SUCCESS",
-  failed: "TYPE_FAILED"
+  addorder: "ADDORDER_REQUEST",
+  request: "CART_REQUEST",
+  success: "CART_SUCCESS",
+  failed: "CART_FAILED"
 };
 
 // REDUCER
 
 const INITIAL_STATE = {
-  types: [],
+  orders: [],
   error: false,
   loading: false
 };
 
-export default function type(state = INITIAL_STATE, action) {
+export default function cart(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.request:
       return { ...state, loading: true };
 
+    case Types.addorder:
+      return { orders: [...state.orders, action.payload.size_id], loading: true };
+
     case Types.success:
       return {
         ...state,
-        types: action.payload.types,
+        orders: action.payload.orders,
         error: false,
         loading: false
       };
@@ -38,17 +42,21 @@ export default function type(state = INITIAL_STATE, action) {
 // ACTIONS CREATORS
 
 export const Creators = {
-  typeRequest: id => ({
+  addOrderRequest: size_id => ({
+    type: Types.addorder,
+    payload: { size_id }
+  }),
+
+  cartRequest: () => ({
     type: Types.request,
-    payload: { id }
   }),
 
-  typeSuccess: types => ({
+  cartSuccess: orders => ({
     type: Types.success,
-    payload: { types }
+    payload: { orders }
   }),
 
-  typeFailed: () => ({
+  cartFailed: () => ({
     type: Types.failed
   })
 };

@@ -18,6 +18,7 @@ Route.group(() => {
   //Verificar todos os produtos e tipos
   Route.get("menu", "ProductController.show");
   Route.get("menu/:type", "TypeController.show");
+  Route.get("menu/size/:type", "SizeController.show");
 
   //Adicionar pedido ao carriho
   Route.post("order", "OrderController.store");

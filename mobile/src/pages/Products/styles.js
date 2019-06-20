@@ -13,8 +13,8 @@ export const Background = styled.ImageBackground`
 
 export const Title = styled.Text`
   color: #fff;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 50px;
+  margin-right: 50px;
   font-weight: bold;
   font-size: 20px;
 `

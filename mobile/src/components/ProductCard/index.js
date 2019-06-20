@@ -8,7 +8,6 @@ import React, { Component } from 'react';
 class ProductCard extends Component {
 
   render() {
-    console.tron.log(this.props);
     const { product, navigation } = this.props;
 
     return (

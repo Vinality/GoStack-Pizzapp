@@ -1,20 +1,19 @@
 // ACTION TYPES
 
 export const Types = {
-  request: "TYPE_REQUEST",
-  success: "TYPE_SUCCESS",
-  failed: "TYPE_FAILED"
+  request: "SIZE_REQUEST",
+  success: "SIZE_SUCCESS",
+  failed: "SIZE_FAILED"
 };
 
 // REDUCER
 
 const INITIAL_STATE = {
-  types: [],
+  sizes: [],
   error: false,
-  loading: false
 };
 
-export default function type(state = INITIAL_STATE, action) {
+export default function size(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.request:
       return { ...state, loading: true };
@@ -22,13 +21,12 @@ export default function type(state = INITIAL_STATE, action) {
     case Types.success:
       return {
         ...state,
-        types: action.payload.types,
+        sizes: action.payload.sizes,
         error: false,
-        loading: false
       };
 
     case Types.failed:
-      return { ...state, error: true, loading: false };
+      return { ...state, error: true };
 
     default:
       return state;
@@ -38,17 +36,17 @@ export default function type(state = INITIAL_STATE, action) {
 // ACTIONS CREATORS
 
 export const Creators = {
-  typeRequest: id => ({
+  sizeRequest: id => ({
     type: Types.request,
     payload: { id }
   }),
 
-  typeSuccess: types => ({
+  sizeSuccess: sizes => ({
     type: Types.success,
-    payload: { types }
+    payload: { sizes }
   }),
 
-  typeFailed: () => ({
+  sizeFailed: () => ({
     type: Types.failed
   })
 };

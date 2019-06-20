@@ -8,10 +8,11 @@ import React, { Component } from 'react';
 class TypeCard extends Component {
 
   render() {
-    const { type } = this.props;
+    const { type, product } = this.props;
+
 
     return (
-      <Container>
+      <Container onPress={() => navigate('Sizes', { id: type.type_id, back_id: product })}>
         <Img source={{ uri: type.image_url }} />
         <Type>{type.type}</Type>
       </Container>

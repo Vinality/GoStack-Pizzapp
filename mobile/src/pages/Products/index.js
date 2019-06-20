@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, InteractionManager, ActivityIndicator } from "react-native";
 import { bindActionCreators } from "redux";
 import { Creators as ProductActions } from "../../store/ducks/products";
 import { navigate } from "../../services/navigation";
@@ -12,15 +12,19 @@ import Icon2 from 'react-native-vector-icons/AntDesign';
 import { Container, ProductList, Background, Title, Header } from "./styles";
 
 class Products extends Component {
+
   componentDidMount() {
-    this.props.productRequest();
+    InteractionManager.runAfterInteractions(() => {
+      this.props.productRequest();
+    })
   }
 
   render() {
-    const { products, navigation } = this.props;
+    const { products, navigation, loading } = this.props;
     return (
       <Background source={headerbg}>
-        <ProductList>
+        {loading && <ActivityIndicator size="small" color="#00ff00" />}
+        {!loading && <ProductList>
           <Header>
             <Icon name="back-in-time" size={25} color="#fff" />
             <Title>Pizzaria Don Juan</Title>
@@ -29,7 +33,7 @@ class Products extends Component {
           {products && products.map(product => (
             <ProductCard product={product} key={product.id} navigation={navigation}/>
           ))}
-        </ProductList>
+        </ProductList>}
       </Background>
     );
   }
@@ -38,6 +42,7 @@ class Products extends Component {
 const mapStateToProps = state => ({
   error: state.products.error,
   products: state.products.products,
+  loading: state.products.loading
 });
 
 const mapDispatchToProps = dispatch =>

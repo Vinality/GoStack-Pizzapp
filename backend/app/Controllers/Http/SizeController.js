@@ -12,6 +12,13 @@ class SizeController {
 
     return size;
   }
+
+  async show({ params }) {
+    const url = params
+    const menu = await Size.query().where('type_id', url.type).fetch();
+
+    return menu;
+  }
 }
 
 module.exports = SizeController;

@@ -13,7 +13,7 @@ export const Title = styled.Text`
 `
 
 export const Header = styled.View`
-  margin-top: 220px;
+  margin-top: 160px;
   justify-content: flex-start;
   flex-direction: row;
   margin-left: 50px;
@@ -28,7 +28,7 @@ export const Container = styled.View`
   align-items:center;
 `;
 
-export const TypeList = styled.View`
+export const SizeList = styled.View`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

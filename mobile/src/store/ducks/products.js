@@ -11,6 +11,7 @@ export const Types = {
 const INITIAL_STATE = {
   products: [],
   error: false,
+  loading: false,
 };
 
 export default function products(state = INITIAL_STATE, action) {
@@ -23,10 +24,11 @@ export default function products(state = INITIAL_STATE, action) {
         ...state,
         products: action.payload.products,
         error: false,
+        loading: false
       };
 
     case Types.failed:
-      return { ...state, error: true };
+      return { ...state, error: true, loading: false };
 
     default:
       return state;
