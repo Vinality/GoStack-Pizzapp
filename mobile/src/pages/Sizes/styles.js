@@ -12,6 +12,14 @@ export const Title = styled.Text`
   margin-left: 20px;
 `
 
+export const Error = styled.Text`
+  color: #f44242;
+  font-weight: bold;
+  margin-top: 20px;
+  align-items: center;
+  font-size: 20px;
+`
+
 export const Header = styled.View`
   margin-top: 160px;
   justify-content: flex-start;
@@ -22,7 +30,6 @@ export const Header = styled.View`
 `
 
 export const Container = styled.View`
-  /* margin-top: 150px; */
   display: flex;
   justify-content: center;
   align-items:center;

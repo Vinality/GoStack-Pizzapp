@@ -10,8 +10,11 @@ import React, { Component } from 'react';
 
 class SizeCard extends Component {
   handleCartSubmit = () => {
-    const { addOrderRequest, size } = this.props;
-    addOrderRequest(size.size_id);
+    const { addOrderRequest, cartFailed, orders, size } = this.props;
+    if(orders.length < 3)
+      addOrderRequest(size.size_id);
+    else
+      cartFailed();
   }
 
   render() {
@@ -33,10 +36,14 @@ class SizeCard extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  orders: state.cart.orders,
+});
+
 const mapDispatchToProps = dispatch =>
   bindActionCreators(CartActions, dispatch);
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SizeCard);

@@ -2,37 +2,24 @@
 
 export const Types = {
   addorder: "ADDORDER_REQUEST",
-  request: "CART_REQUEST",
-  success: "CART_SUCCESS",
-  failed: "CART_FAILED"
+  failed: "ADDORDER_FAILED"
 };
 
 // REDUCER
 
 const INITIAL_STATE = {
   orders: [],
-  error: false,
-  loading: false
+  error: false
 };
 
 export default function cart(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case Types.request:
-      return { ...state, loading: true };
 
     case Types.addorder:
-      return { orders: [...state.orders, action.payload.size_id], loading: true };
-
-    case Types.success:
-      return {
-        ...state,
-        orders: action.payload.orders,
-        error: false,
-        loading: false
-      };
+      return { orders: [...state.orders, action.payload.size_id] };
 
     case Types.failed:
-      return { ...state, error: true, loading: false };
+      return { ...state, error: true };
 
     default:
       return state;
@@ -47,16 +34,7 @@ export const Creators = {
     payload: { size_id }
   }),
 
-  cartRequest: () => ({
-    type: Types.request,
-  }),
-
-  cartSuccess: orders => ({
-    type: Types.success,
-    payload: { orders }
-  }),
-
   cartFailed: () => ({
     type: Types.failed
-  })
+  }),
 };

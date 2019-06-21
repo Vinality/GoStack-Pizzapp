@@ -9,8 +9,7 @@ class TypeCard extends Component {
 
   render() {
     const { type, product } = this.props;
-
-
+    
     return (
       <Container onPress={() => navigate('Sizes', { id: type.type_id, back_id: product })}>
         <Img source={{ uri: type.image_url }} />

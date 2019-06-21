@@ -7,9 +7,10 @@ import SizeCard from "../../components/SizeCard";
 import headerbg from '../../resources/headerbg.png';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import { Container, Background, Title, Header, SizeList } from "./styles";
+import { Container, Background, Title, Header, SizeList, Error } from "./styles";
 
 class Sizes extends Component {
+
   componentDidMount() {
     const { navigation } = this.props;
 
@@ -18,7 +19,7 @@ class Sizes extends Component {
   }
 
   render() {
-    const { sizes, navigation } = this.props;
+    const { sizes, navigation, error } = this.props;
     const backid = navigation.getParam('back_id', 'no-id');
     return (
       <Background source={headerbg}>
@@ -38,6 +39,7 @@ class Sizes extends Component {
             <SizeCard size={size} key={size.id}/>
           ))}
           </SizeList>
+          {error && <Error>Máximo de 3 items por pedido</Error>}
         </Container>
       </Background>
     );
@@ -45,7 +47,7 @@ class Sizes extends Component {
 }
 
 const mapStateToProps = state => ({
-  error: state.size.error,
+  error: state.cart.error,
   sizes: state.size.sizes,
 });
 
