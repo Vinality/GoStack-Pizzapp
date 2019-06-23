@@ -26,9 +26,20 @@ class Products extends Component {
         {loading && <ActivityIndicator size="small" color="#00ff00" />}
         {!loading && <ProductList>
           <Header>
-            <Icon name="back-in-time" size={25} color="#fff" />
+            <Icon.Button
+              name="back-in-time"
+              size={25}
+              color="#fff"
+              backgroundColor='transparent'
+              onPress={() => navigation.navigate('Cart')}
+            />
             <Title>Pizzaria Don Juan</Title>
-            <Icon2 name="shoppingcart" size={25} color="#fff" />
+            <Icon2.Button
+              name="shoppingcart"
+              size={25} color="#fff"
+              backgroundColor='transparent'
+              onPress={() => navigation.navigate('Cart')}
+            />
           </Header>
           {products && products.map(product => (
             <ProductCard product={product} key={product.id} navigation={navigation}/>

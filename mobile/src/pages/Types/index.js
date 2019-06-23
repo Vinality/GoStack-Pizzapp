@@ -11,19 +11,12 @@ import { Container, Background, Title, Header, TypeList } from "./styles";
 
 class Types extends Component {
   componentDidMount() {
-    const { navigation } = this.props;
-    const back_id = navigation.getParam('back_id', 'no-id');
-    const id = navigation.getParam('id', 'no-id');
-
-    if(id !== 'no-id')
-      this.props.typeRequest(id);
-    else
-      this.props.typeRequest(back_id);
+    const { prod_id } = this.props;
+    this.props.typeRequest(prod_id);
   }
 
   render() {
     const { types, navigation, loading } = this.props;
-    const back_id = navigation.getParam('id', 'no-id');
 
     return (
       <Background source={headerbg}>
@@ -41,7 +34,7 @@ class Types extends Component {
           </Header>
           <TypeList>
           {types && types.map(type => (
-            <TypeCard type={type} key={type.id} product={back_id}/>
+            <TypeCard type={type} key={type.id} />
           ))}
           </TypeList>
         </Container>}
@@ -53,7 +46,8 @@ class Types extends Component {
 const mapStateToProps = state => ({
   error: state.type.error,
   types: state.type.types,
-  loading: state.type.loading
+  loading: state.type.loading,
+  prod_id: state.products.currentProd,
 });
 
 const mapDispatchToProps = dispatch =>

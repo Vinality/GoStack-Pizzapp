@@ -20,7 +20,6 @@ class Sizes extends Component {
 
   render() {
     const { sizes, navigation, error } = this.props;
-    const backid = navigation.getParam('back_id', 'no-id');
     return (
       <Background source={headerbg}>
         <Container>
@@ -30,7 +29,7 @@ class Sizes extends Component {
               size={20}
               color="#fff"
               backgroundColor='transparent'
-              onPress={() => navigation.navigate('Types', { back_id: backid })}
+              onPress={() => navigation.navigate('Types')}
             />
             <Title>Selecione um tamanho</Title>
           </Header>

@@ -6,9 +6,6 @@ const Route = use("Route");
 Route.post("users", "UserController.store");
 Route.post("session", "SessionController.store");
 
-Route.post("files", "FileController.store");
-Route.post("files/:id", "FileController.show");
-
 Route.group(() => {
   //Rotas para criação do cardapio
   Route.post("prod", "ProductController.store");
@@ -20,8 +17,10 @@ Route.group(() => {
   Route.get("menu/:type", "TypeController.show");
   Route.get("menu/size/:type", "SizeController.show");
 
-  //Adicionar pedido ao carriho
+  Route.post('cart', "CartController.show");
+
+  //Finalizar pedido
   Route.post("order", "OrderController.store");
   //Ver carrinho
-  Route.get("cart", "OrderController.show");
+  Route.get("order", "OrderController.show");
 }).middleware(["auth"]);

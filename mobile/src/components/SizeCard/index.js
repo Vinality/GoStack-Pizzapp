@@ -11,8 +11,10 @@ import React, { Component } from 'react';
 class SizeCard extends Component {
   handleCartSubmit = () => {
     const { addOrderRequest, cartFailed, orders, size } = this.props;
-    if(orders.length < 3)
+    if(orders.length < 3) {
       addOrderRequest(size.size_id);
+      navigate('Products');
+    }
     else
       cartFailed();
   }

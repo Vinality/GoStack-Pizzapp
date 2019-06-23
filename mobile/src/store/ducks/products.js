@@ -3,12 +3,14 @@
 export const Types = {
   request: "PRODUCT_REQUEST",
   success: "PRODUCT_SUCCESS",
-  failed: "PRODUCT_FAILED"
+  failed: "PRODUCT_FAILED",
+  updatecurrent: "PRODUCT_CURRENT"
 };
 
 // REDUCER
 
 const INITIAL_STATE = {
+  currentProd: null,
   products: [],
   error: false,
   loading: false,
@@ -30,6 +32,9 @@ export default function products(state = INITIAL_STATE, action) {
     case Types.failed:
       return { ...state, error: true, loading: false };
 
+    case Types.updatecurrent:
+      return { ...state, error: false, loading: false, currentProd: action.payload.id };
+
     default:
       return state;
   }
@@ -49,5 +54,10 @@ export const Creators = {
 
   productFailed: () => ({
     type: Types.failed
+  }),
+
+  setCurrentProd: (id) => ({
+    type: Types.updatecurrent,
+    payload: { id }
   })
 };

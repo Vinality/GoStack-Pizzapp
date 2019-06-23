@@ -23,7 +23,7 @@ export function* GetTypes(action) {
       }
     ));
 
-    yield put(TypeAction.typeSuccess(types));
+    yield put(TypeAction.typeSuccess(types, action.payload.id));
 
     // navigate("Sizes");
   } catch (error) {

@@ -5,6 +5,7 @@ import Signup from './pages/Signup';
 import Products from './pages/Products';
 import Types from './pages/Types';
 import Sizes from './pages/Sizes';
+import Cart from './pages/Cart';
 
 const Routes = createAppContainer(
   createSwitchNavigator({
@@ -12,7 +13,8 @@ const Routes = createAppContainer(
     Signup,
     Products,
     Types,
-    Sizes
+    Sizes,
+    Cart
   })
 )
 

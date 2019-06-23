@@ -43,7 +43,7 @@ export const Creators = {
     payload: { id }
   }),
 
-  typeSuccess: types => ({
+  typeSuccess: (types) => ({
     type: Types.success,
     payload: { types }
   }),
