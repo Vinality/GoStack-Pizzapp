@@ -7,9 +7,14 @@ const Size = use("App/Models/Size");
 class OrderController {
   async store({request, auth}) {
     const { id } = await auth.getUser();
-    const data = request.post()
+    const data = request.post();
+    var arrOrders = await Size.query().where('id', data.size_id).orWhere('id', data.size_id2).orWhere('id', data.size_id3).fetch();
+    var total = 0;
+    
+    arrOrders = arrOrders.toJSON();
+    arrOrders.map(order => (total += order.price));
 
-    const order = Order.create({ ...data, user_id: id});
+    const order = Order.create({ ...data, user_id: id, total});
 
     return order;
   }

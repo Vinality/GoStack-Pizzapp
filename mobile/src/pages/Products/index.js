@@ -31,7 +31,7 @@ class Products extends Component {
               size={25}
               color="#fff"
               backgroundColor='transparent'
-              onPress={() => navigation.navigate('Cart')}
+              onPress={() => navigation.navigate('Orders')}
             />
             <Title>Pizzaria Don Juan</Title>
             <Icon2.Button

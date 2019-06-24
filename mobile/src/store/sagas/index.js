@@ -6,12 +6,14 @@ import { GetProducts } from "./products";
 import { GetTypes } from "./type";
 import { GetSizes } from "./size";
 import { GetCart } from "./cart";
+import { GetOrders } from "./order";
 
 import { Creators as UserAction, Types as UserTypes } from "../ducks/user";
 import { Creators as ProductAction, Types as ProductTypes } from "../ducks/products";
 import { Creators as TypeAction, Types as TypeTypes } from "../ducks/type";
 import { Creators as SizeAction, Types as SizeTypes } from "../ducks/size";
 import { Creators as CartAction, Types as CartTypes } from "../ducks/cart";
+import { Creators as OrderAction, Types as OrderTypes } from "../ducks/order";
 
 export default function* rootSaga() {
   return yield all([
@@ -20,6 +22,7 @@ export default function* rootSaga() {
     takeLatest(ProductTypes.request, GetProducts),
     takeLatest(TypeTypes.request, GetTypes),
     takeLatest(SizeTypes.request, GetSizes),
-    takeLatest(CartTypes.getcart, GetCart)
+    takeLatest(CartTypes.getcart, GetCart),
+    takeLatest(OrderTypes.request, GetOrders)
   ]);
 }

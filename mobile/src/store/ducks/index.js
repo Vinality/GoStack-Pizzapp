@@ -5,11 +5,13 @@ import products from './products'
 import type from './type'
 import size from './size'
 import cart from './cart'
+import order from './order'
 
 export default combineReducers({
   user,
   products,
   type,
   size,
-  cart
+  cart,
+  order
 });
