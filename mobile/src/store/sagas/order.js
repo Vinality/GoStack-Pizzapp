@@ -25,8 +25,6 @@ export function* GetOrders(action) {
         }
     )});
 
-    console.tron.log(orders);
-
     yield put(OrderAction.orderSuccess(orders));
   } catch (error) {
     yield put(OrderAction.orderFailed());

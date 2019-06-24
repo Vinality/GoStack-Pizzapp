@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Text, View, Image, InteractionManager, ActivityIndicator } from "react-native";
 import { bindActionCreators } from "redux";
 import { Creators as CartActions } from "../../store/ducks/cart";
 import { navigate } from "../../services/navigation";
@@ -8,7 +7,7 @@ import CartCard from "../../components/CartCard";
 import headerbg from '../../resources/headerbg.png';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import { Container, ProductList, Background, Title, Header, Empty } from "./styles";
+import { Container, ProductList, Background, Title, Header, Empty, Button, ButtonText, ButtonContainer } from "./styles";
 
 class Cart extends Component {
 
@@ -18,7 +17,7 @@ class Cart extends Component {
   }
 
   render() {
-    const { cart, total, navigation } = this.props;
+    const { cart, total, navigation, orders } = this.props;
     return (
       <Background source={headerbg}>
         <Header>
@@ -37,6 +36,13 @@ class Cart extends Component {
             <CartCard product={product} />
           ))}
         </ProductList>
+        {orders.length !== 0 &&
+        <ButtonContainer>
+          <Button >
+            <ButtonText>FINALIZAR PEDIDO</ButtonText>
+          </Button>
+        </ButtonContainer>
+        }
       </Background>
     );
   }

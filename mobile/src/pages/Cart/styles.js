@@ -11,6 +11,27 @@ export const Background = styled.ImageBackground`
   height: 20%;
 `;
 
+export const ButtonContainer = styled.View`
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
+export const Button = styled.TouchableOpacity`
+  background: #f44248;
+  border-radius: 20px;
+  width: 220px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ButtonText = styled.Text`
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+`;
+
 export const Title = styled.Text`
   color: #fff;
   margin-top: 6px;
@@ -18,13 +39,14 @@ export const Title = styled.Text`
   margin-right: 150px;
   font-weight: bold;
   font-size: 20px;
-`
+`;
+
 export const Empty = styled.Text`
   color: #f44242;
   margin-top: 6px;
   font-weight: bold;
   font-size: 20px;
-`
+`;
 
 export const Header = styled.View`
   margin-top: 60px;
@@ -33,11 +55,10 @@ export const Header = styled.View`
   margin-left: 10px;
   height: 50px;
   width: 100%;
-  height: 70px;
-`
+  height: 50px;
+`;
 
 export const ProductList = styled.View`
   display: flex;
-  justify-content: center;
   align-items:center;
 `;

@@ -11,11 +11,13 @@ export const When = styled.Text`
   font-size: 11px;
   color: #706e7b;
   width: 100%;
+  margin-bottom: 5px;
 `;
 
 export const Number = styled.Text`
   font-size: 12px;
   width: 100%;
+  margin-bottom: 5px;
 `;
 
 export const Order = styled.View`
