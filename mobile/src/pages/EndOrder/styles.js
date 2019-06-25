@@ -101,7 +101,7 @@ export const FormContainer = styled.View`
 `;
 
 export const StreetContainer = styled.View`
-  flex-direction: column;
+  flex-direction: row;
 `;
 
 export const Header = styled.View`
