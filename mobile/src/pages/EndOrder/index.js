@@ -3,23 +3,31 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Creators as CartActions } from "../../store/ducks/cart";
 import { navigate } from "../../services/navigation";
-import CartCard from "../../components/CartCard";
 import headerbg from '../../resources/headerbg.png';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import { ProductList, Background, Title, Header, Button, ButtonText, ButtonContainer } from "./styles";
+import {
+  Background,
+  Title,
+  Header,
+  Button,
+  ButtonText,
+  ButtonContainer,
+  FormContainer,
+  Obs,
+  InputLine,
+  StreetContainer,
+  Street,
+  Number
+} from "./styles";
 
-class Cart extends Component {
-
-  componentDidMount() {
-    const { getCart, orders } = this.props;
-    getCart(orders);
-  }
+class EndOrder extends Component {
 
   render() {
-    const { cart, total, navigation, orders } = this.props;
+    const { total, navigation } = this.props;
     return (
       <Background source={headerbg}>
+
         <Header>
           <Icon.Button
             name="ios-arrow-back"
@@ -28,29 +36,31 @@ class Cart extends Component {
             backgroundColor='transparent'
             onPress={() => navigation.navigate('Products')}
           />
-          <Title>Carrinho</Title>
+          <Title>Realizar Pedido</Title>
           <Title>R${total}</Title>
         </Header>
-        <ProductList>
-          {cart && cart.map(product => (
-            <CartCard product={product} />
-          ))}
-        </ProductList>
-        {orders.length !== 0 &&
+
+        <FormContainer>
+          <Obs placeholder='Alguma observação?'/>
+          <InputLine placeholder='Qual seu CEP?'/>
+          <StreetContainer>
+            <Street placeholder='Rua'/>
+            <Number placeholder='N°'/>
+          </StreetContainer>
+          <InputLine placeholder='Bairro'/>
+        </FormContainer>
+
         <ButtonContainer>
           <Button >
-            <ButtonText onPress={() => navigation.navigate('EndOrder')}>FINALIZAR PEDIDO</ButtonText>
+            <ButtonText>FINALIZAR</ButtonText>
           </Button>
         </ButtonContainer>
-        }
       </Background>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  orders: state.cart.orders,
-  cart: state.cart.cart,
   total: state.cart.total
 });
 
@@ -60,4 +70,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Cart);
+)(EndOrder);
