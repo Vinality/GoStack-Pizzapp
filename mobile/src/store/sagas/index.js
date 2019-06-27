@@ -5,7 +5,7 @@ import { UserLogin, UserSignup } from "./user";
 import { GetProducts } from "./products";
 import { GetTypes } from "./type";
 import { GetSizes } from "./size";
-import { GetCart } from "./cart";
+import { GetCart, EndOrder } from "./cart";
 import { GetOrders } from "./order";
 
 import { Creators as UserAction, Types as UserTypes } from "../ducks/user";
@@ -23,6 +23,7 @@ export default function* rootSaga() {
     takeLatest(TypeTypes.request, GetTypes),
     takeLatest(SizeTypes.request, GetSizes),
     takeLatest(CartTypes.getcart, GetCart),
+    takeLatest(CartTypes.endorder, EndOrder),
     takeLatest(OrderTypes.request, GetOrders)
   ]);
 }

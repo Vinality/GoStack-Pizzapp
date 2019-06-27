@@ -40,6 +40,30 @@ export function* GetCart(action) {
   }
 }
 
+export function* EndOrder(action) {
+  try {
+    const token = yield call(getToken, null);
+    const config = {
+      headers: { Authorization: "bearer " + token }
+    };
+
+    const send = {
+      size_id: action.payload.orders[0],
+      size_id2: action.payload.orders[1] ? action.payload.orders[1] : null,
+      size_id3: action.payload.orders[2] ? action.payload.orders[2] : null,
+      address: action.payload.address,
+      total: action.payload.total,
+      obs: action.payload.obs
+    };
+
+    const { data } = yield call(api.post, '/order', send, config);
+
+    yield put(CartAction.endOrderSuccess());
+  } catch (error) {
+    yield put(CartAction.cartFailed());
+  }
+}
+
 async function getToken() {
   try {
     const token = await AsyncStorage.getItem('@donjuan:token');

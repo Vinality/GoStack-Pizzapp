@@ -14,7 +14,7 @@ export const Background = styled.ImageBackground`
 export const Title = styled.Text`
   color: #fff;
   margin-top: 7px;
-  margin-left: 42px;
+  margin-left: 35px;
   margin-right: 50px;
   font-weight: bold;
   font-size: 20px;

@@ -17,6 +17,9 @@ class SizeSchema extends Schema {
         .inTable("types")
         .onUpdate("CASCADE")
         .onDelete("SET NULL");
+      table
+        .string('image_url', 50)
+        .notNullable();
     });
   }
 

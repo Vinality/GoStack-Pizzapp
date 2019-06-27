@@ -5,7 +5,9 @@ export const Types = {
   removeorder: "REMOVE_REQUEST",
   failed: "ADDORDER_FAILED",
   getcart: "GETCART_REQUEST",
-  success: "GETCART_SUCCESS"
+  success: "GETCART_SUCCESS",
+  endorder: "ENDORDER_REQUEST",
+  ordersuccess: "ENDORDER_SUCCESS"
 };
 
 // REDUCER
@@ -38,6 +40,12 @@ export default function cart(state = INITIAL_STATE, action) {
     case Types.failed:
       return { ...state, error: true };
 
+    case Types.endorder:
+      return { ...state };
+
+    case Types.ordersuccess:
+      return { orders: [], cart: [], total: 0, error: false };
+
     case Types.success:
       return { ...state, cart: action.payload.cart, total: action.payload.total };
 
@@ -61,6 +69,15 @@ export const Creators = {
 
   cartFailed: () => ({
     type: Types.failed
+  }),
+
+  endOrderRequest: (orders, address, total, obs) => ({
+    type: Types.endorder,
+    payload: { orders, address, total, obs }
+  }),
+
+  endOrderSuccess: () => ({
+    type: Types.ordersuccess,
   }),
 
   getCart: orders => ({

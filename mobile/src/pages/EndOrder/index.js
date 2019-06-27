@@ -19,7 +19,9 @@ import {
   InputLine,
   StreetContainer,
   Street,
-  Number
+  Number,
+  Error,
+  ErrorContainer
 } from "./styles";
 
 class EndOrder extends Component {
@@ -27,7 +29,6 @@ class EndOrder extends Component {
     obs: '',
     cep: '',
     rua: '',
-    cidade: '',
     bairro: '',
     num: '',
     error: null
@@ -38,10 +39,22 @@ class EndOrder extends Component {
     const { cep } = this.state;
     try {
       await cepPromise(cep).then(result => { address = result; });
+      this.setState({ rua: address.street, bairro: address.neighborhood });
+    } catch (error) {
+      this.setState({error: 'Preencha o CEP corretamente'});
+    }
+  }
 
-      this.setState({ rua: address.street, cidade: address.city, bairro: address.neighborhood });
-    } catch (err) {
-      this.setState('Preencha o CEP corretamente');
+  handleEndOrder = () => {
+    const { endOrderRequest, orders, total } = this.props;
+    const { rua, num, bairro, obs } = this.state;
+
+    if(rua === '' || num === '' || bairro === '') {
+      this.setState({ error: 'Preencha todos os campos!'})
+    }
+    else {
+      const address = rua + ", " + num + ", " + bairro;
+      endOrderRequest(orders, address, total, obs);
     }
   }
 
@@ -96,17 +109,21 @@ class EndOrder extends Component {
         </FormContainer>
 
         <ButtonContainer>
-          <Button>
+          <Button onPress={this.handleEndOrder}>
             <ButtonText>FINALIZAR</ButtonText>
           </Button>
         </ButtonContainer>
+        <ErrorContainer>
+          {error && <Error>{error}</Error>}
+        </ErrorContainer>
       </Background>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  total: state.cart.total
+  total: state.cart.total,
+  orders: state.cart.orders
 });
 
 const mapDispatchToProps = dispatch =>

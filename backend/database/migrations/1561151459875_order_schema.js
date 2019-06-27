@@ -36,6 +36,13 @@ class OrderSchema extends Schema {
         .inTable("users")
         .onUpdate("CASCADE")
         .onDelete("SET NULL");
+      table
+        .integer('total')
+        .notNullable();
+      table
+        .string('address')
+        .notNullable();
+      table.string('obs');
     });
   }
 

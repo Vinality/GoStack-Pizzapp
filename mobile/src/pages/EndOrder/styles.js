@@ -25,6 +25,19 @@ export const ButtonText = styled.Text`
   font-weight: bold;
 `;
 
+export const Error = styled.Text`
+  color: #f44242;
+  font-weight: bold;
+  font-size: 20px;
+`;
+
+export const ErrorContainer = styled.View`
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Title = styled.Text`
   color: #fff;
   margin-top: 6px;
@@ -95,6 +108,7 @@ export const Number = styled.TextInput.attrs({
 `;
 
 export const FormContainer = styled.View`
+  display: flex;
   padding: 20px;
   flex-wrap: wrap;
   flex-direction: row;
