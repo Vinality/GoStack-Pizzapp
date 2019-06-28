@@ -17,8 +17,14 @@ export const Container = styled.div`
 
 export const Title = styled.h1`
   width: 100%;
+`
+
+export const When = styled.h2`
+  width: 100%;
+  font-size: 15px;
+  color: #706e7b;
+  margin-left: 11px;
   border-bottom: 1px solid #d9dce0;
-  /* flex-wrap: nowrap; */
 `
 
 export const Type = styled.p`

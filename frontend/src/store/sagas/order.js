@@ -11,12 +11,14 @@ export function* GetOrders(action) {
       headers: { Authorization: "bearer " + token }
     };
 
-    const { data } = yield call(api.get, "/cart", config);
+    const { data } = yield call(api.get, "/order", config);
 
     const orders = data.map(order => (
       {
         when: order.created_at,
         user: order.user.username,
+        obs: order.obs,
+        address: order.address,
         products: [
           {
             size: order.size.size,
