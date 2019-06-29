@@ -53,7 +53,7 @@ class EndOrder extends Component {
   }
 
   handleEndOrder = () => {
-    const { endOrderRequest, orders, total } = this.props;
+    const { endOrderRequest, orders, total, navigation } = this.props;
     const { rua, num, bairro, obs } = this.state;
 
     if(rua === '' || num === '' || bairro === '') {
@@ -62,6 +62,7 @@ class EndOrder extends Component {
     else {
       const address = rua + ", " + num + ", " + bairro;
       endOrderRequest(orders, address, total, obs);
+      navigation.navigate('Products');
     }
   }
 

@@ -35,6 +35,4 @@ export const Container = styled.View`
   justify-content: flex-start;
   width: 320px;
   height: 100px;
-  border: 1px solid #e0e1e2;
-  box-shadow: 0px 10px 8px #c9cacc;
 `;

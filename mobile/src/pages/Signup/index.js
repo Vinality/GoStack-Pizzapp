@@ -22,8 +22,8 @@ import {
 class Signup extends Component {
 
   static propTypes = {
-    loading: PropTypes.bool.isRequired,
-    error: PropTypes.bool.isRequired,
+    loading: PropTypes.bool,
+    error: PropTypes.bool,
   }
 
   state = {

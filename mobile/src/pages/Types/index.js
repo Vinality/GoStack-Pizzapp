@@ -8,13 +8,19 @@ import TypeCard from "../../components/TypeCard";
 import headerbg from '../../resources/headerbg.png';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import { Container, Background, Title, Header, TypeList } from "./styles";
+import {
+  Container,
+  Background,
+  Title,
+  Header,
+  TypeList
+} from "./styles";
 
 class Types extends Component {
 
   static propTypes = {
-    loading: PropTypes.bool.isRequired,
-    error: PropTypes.bool.isRequired,
+    loading: PropTypes.bool,
+    error: PropTypes.bool,
     prod_id: PropTypes.number.isRequired,
     types: PropTypes.arrayOf(
       PropTypes.shape({

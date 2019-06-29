@@ -21,8 +21,8 @@ import {
 class Products extends Component {
 
   static propTypes = {
-    loading: PropTypes.bool.isRequired,
-    error: PropTypes.bool.isRequired,
+    loading: PropTypes.bool,
+    error: PropTypes.bool,
     products: PropTypes.arrayOf(
       PropTypes.shape({
         product_id: PropTypes.number,

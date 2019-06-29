@@ -7,7 +7,13 @@ import OrderCard from "../../components/OrderCard";
 import headerbg from '../../resources/headerbg.png';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import { Container, Background, Title, Header, OrderList } from "./styles";
+import {
+  Container,
+  Background,
+  Title,
+  Header,
+  OrderList,
+} from "./styles";
 
 class Orders extends Component {
 
@@ -40,11 +46,12 @@ class Orders extends Component {
             />
             <Title>Meus pedidos</Title>
           </Header>
-          <OrderList>
-          {orders && orders.map(order => (
-            <OrderCard order={order} />
-          ))}
-          </OrderList>
+
+            <OrderList>
+            {orders && orders.map(order => (
+              <OrderCard order={order} />
+            ))}
+            </OrderList>
       </Background>
     );
   }

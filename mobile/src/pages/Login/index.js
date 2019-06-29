@@ -20,10 +20,10 @@ import {
 } from "./styles";
 
 class Login extends Component {
-  
+
   static propTypes = {
-    loading: PropTypes.bool.isRequired,
-    error: PropTypes.bool.isRequired,
+    loading: PropTypes.bool,
+    error: PropTypes.bool,
   }
 
   state = {

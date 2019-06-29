@@ -20,7 +20,7 @@ import {
 class Sizes extends Component {
 
   static propTypes = {
-    error: PropTypes.bool.isRequired,
+    error: PropTypes.bool,
     sizes: PropTypes.arrayOf(
       PropTypes.shape({
         size_id: PropTypes.number,
