@@ -1,5 +1,6 @@
 import { Product, Size, Type, Img, Info, Price, Delete } from './styles';
 import { ActivityIndicator, Image, Text, View } from "react-native";
+import PropTypes from 'prop-types';
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Creators as CartActions } from "../../store/ducks/cart";
@@ -8,6 +9,17 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import React, { Component } from 'react';
 
 class CartCard extends Component {
+  
+  static propTypes = {
+    orders: PropTypes.shape({
+        id: PropTypes.number,
+        size: PropTypes.string,
+        price: PropTypes.number,
+        type_url: PropTypes.string,
+        name: PropTypes.string,
+        type: PropTypes.string
+    })
+  }
 
   handleRemove = () => {
     const { removeOrderRequest, product } = this.props;

@@ -1,5 +1,6 @@
 import { Size, Img, Container, Price, FlexCont } from './styles';
 import { ActivityIndicator, Image, Text, View } from "react-native";
+import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { navigate } from "../../services/navigation";
 import { bindActionCreators } from "redux";
@@ -9,6 +10,16 @@ import { Creators as CartActions } from "../../store/ducks/cart";
 import React, { Component } from 'react';
 
 class SizeCard extends Component {
+
+  static propTypes = {
+    sizes: PropTypes.shape({
+      size_id: PropTypes.number,
+      size: PropTypes.string,
+      price: PropTypes.number,
+      size_url: PropTypes.string
+    })
+  }
+
   handleCartSubmit = () => {
     const { addOrderRequest, cartFailed, orders, size } = this.props;
     if(orders.length < 3) {

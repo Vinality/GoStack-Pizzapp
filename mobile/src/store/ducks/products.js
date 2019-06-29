@@ -10,7 +10,7 @@ export const Types = {
 // REDUCER
 
 const INITIAL_STATE = {
-  currentProd: null,
+  currentProd: 0,
   products: [],
   error: false,
   loading: false,

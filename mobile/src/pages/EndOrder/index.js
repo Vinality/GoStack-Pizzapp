@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Creators as CartActions } from "../../store/ducks/cart";
@@ -25,6 +26,12 @@ import {
 } from "./styles";
 
 class EndOrder extends Component {
+
+  static propTypes = {
+    total: PropTypes.number.isRequired,
+    orders: PropTypes.arrayOf(PropTypes.number).isRequired
+  }
+
   state = {
     obs: '',
     cep: '',

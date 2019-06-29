@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { Text, View, Image, InteractionManager, ActivityIndicator } from "react-native";
 import { bindActionCreators } from "redux";
@@ -9,9 +10,28 @@ import headerbg from '../../resources/headerbg.png';
 import Icon from 'react-native-vector-icons/Entypo';
 import Icon2 from 'react-native-vector-icons/AntDesign';
 
-import { Container, ProductList, Background, Title, Header } from "./styles";
+import {
+  Container,
+  ProductList,
+  Background,
+  Title,
+  Header
+} from "./styles";
 
 class Products extends Component {
+
+  static propTypes = {
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.bool.isRequired,
+    products: PropTypes.arrayOf(
+      PropTypes.shape({
+        product_id: PropTypes.number,
+        name: PropTypes.string,
+        image_url: PropTypes.string,
+        description: PropTypes.string,
+      })
+    ).isRequired
+  }
 
   componentDidMount() {
     InteractionManager.runAfterInteractions(() => {

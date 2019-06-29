@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { Text, View, Image, ActivityIndicator } from "react-native";
 import { bindActionCreators } from "redux";
@@ -10,6 +11,20 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { Container, Background, Title, Header, TypeList } from "./styles";
 
 class Types extends Component {
+
+  static propTypes = {
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.bool.isRequired,
+    prod_id: PropTypes.number.isRequired,
+    types: PropTypes.arrayOf(
+      PropTypes.shape({
+        type_id: PropTypes.number,
+        type: PropTypes.string,
+        image_url: PropTypes.string
+      })
+    ).isRequired
+  }
+
   componentDidMount() {
     const { prod_id } = this.props;
     this.props.typeRequest(prod_id);

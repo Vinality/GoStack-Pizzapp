@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Creators as OrderActions } from "../../store/ducks/order";
@@ -9,6 +10,17 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { Container, Background, Title, Header, OrderList } from "./styles";
 
 class Orders extends Component {
+
+  static propTypes = {
+    orders: PropTypes.arrayOf(
+      PropTypes.shape({
+        order_id: PropTypes.number,
+        total: PropTypes.number,
+        when: PropTypes.string,
+      })
+    ).isRequired
+  }
+
   componentDidMount() {
     this.props.getOrderRequest();
   }

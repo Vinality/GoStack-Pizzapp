@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { Text, View, Image } from "react-native";
 import { bindActionCreators } from "redux";
@@ -7,9 +8,28 @@ import SizeCard from "../../components/SizeCard";
 import headerbg from '../../resources/headerbg.png';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import { Container, Background, Title, Header, SizeList, Error } from "./styles";
+import {
+  Container,
+  Background,
+  Title,
+  Header,
+  SizeList,
+  Error
+} from "./styles";
 
 class Sizes extends Component {
+
+  static propTypes = {
+    error: PropTypes.bool.isRequired,
+    sizes: PropTypes.arrayOf(
+      PropTypes.shape({
+        size_id: PropTypes.number,
+        size: PropTypes.string,
+        price: PropTypes.number,
+        size_url: PropTypes.string
+      })
+    ).isRequired
+  }
 
   componentDidMount() {
     const { navigation } = this.props;

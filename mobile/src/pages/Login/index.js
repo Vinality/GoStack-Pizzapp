@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { ActivityIndicator, Image, Text } from "react-native";
 import { bindActionCreators } from "redux";
@@ -7,9 +8,24 @@ import { navigate } from "../../services/navigation";
 import logo from '../../resources/logo.png';
 import fundo from '../../resources/fundo.png';
 
-import { Container, Input, Button, ButtonText, Error, Img, Background, TextSign } from "./styles";
+import {
+  Container,
+  Input,
+  Button,
+  ButtonText,
+  Error,
+  Img,
+  Background,
+  TextSign
+} from "./styles";
 
 class Login extends Component {
+  
+  static propTypes = {
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.bool.isRequired,
+  }
+
   state = {
     username: '',
     password: ''

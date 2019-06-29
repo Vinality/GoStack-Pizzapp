@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Creators as CartActions } from "../../store/ducks/cart";
@@ -10,6 +11,23 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { ProductList, Background, Title, Header, Button, ButtonText, ButtonContainer } from "./styles";
 
 class Cart extends Component {
+
+  static propTypes = {
+    orders: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        size: PropTypes.string,
+        price: PropTypes.number,
+        type_url: PropTypes.string,
+        name: PropTypes.string,
+        type: PropTypes.string
+      })
+    ).isRequired,
+
+    total: PropTypes.number,
+
+    orders: PropTypes.arrayOf(PropTypes.number).isRequired
+  }
 
   componentDidMount() {
     const { getCart, orders } = this.props;
