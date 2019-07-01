@@ -9,7 +9,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import React, { Component } from 'react';
 
 class CartCard extends Component {
-  
+
   static propTypes = {
     orders: PropTypes.shape({
         id: PropTypes.number,
@@ -17,7 +17,15 @@ class CartCard extends Component {
         price: PropTypes.number,
         type_url: PropTypes.string,
         name: PropTypes.string,
-        type: PropTypes.string
+        type: PropTypes.string,
+
+        addOrderRequest: PropTypes.function,
+        cartFailed: PropTypes.function,
+        removeOrderRequest: PropTypes.function,
+        endOrderRequest: PropTypes.function,
+        endOrderSuccess: PropTypes.function,
+        getCart: PropTypes.function,
+        getCartSuccess: PropTypes.function,
     })
   }
 

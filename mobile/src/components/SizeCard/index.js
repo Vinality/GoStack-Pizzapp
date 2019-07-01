@@ -16,7 +16,15 @@ class SizeCard extends Component {
       size_id: PropTypes.number,
       size: PropTypes.string,
       price: PropTypes.number,
-      size_url: PropTypes.string
+      size_url: PropTypes.string,
+
+      addOrderRequest: PropTypes.function,
+      cartFailed: PropTypes.function,
+      removeOrderRequest: PropTypes.function,
+      endOrderRequest: PropTypes.function,
+      endOrderSuccess: PropTypes.function,
+      getCart: PropTypes.function,
+      getCartSuccess: PropTypes.function,
     })
   }
 

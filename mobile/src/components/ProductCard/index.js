@@ -19,6 +19,11 @@ class ProductCard extends Component {
       description: PropTypes.string,
     }).isRequired,
 
+    productRequest: PropTypes.function,
+    productFailed: PropTypes.function,
+    productSuccess: PropTypes.function,
+    setCurrentProd: PropTypes.function,
+
     navigation: PropTypes.shape({
       navigate: PropTypes.func.isRequired,
     }).isRequired,

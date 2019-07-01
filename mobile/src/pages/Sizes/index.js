@@ -28,7 +28,10 @@ class Sizes extends Component {
         price: PropTypes.number,
         size_url: PropTypes.string
       })
-    ).isRequired
+    ).isRequired,
+    sizeRequest: PropTypes.function,
+    sizeFailed: PropTypes.function,
+    sizeSuccess: PropTypes.function
   }
 
   componentDidMount() {

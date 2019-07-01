@@ -8,12 +8,20 @@ import CartCard from "../../components/CartCard";
 import headerbg from '../../resources/headerbg.png';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import { ProductList, Background, Title, Header, Button, ButtonText, ButtonContainer } from "./styles";
+import {
+  ProductList,
+  Background,
+  Title,
+  Header,
+  Button,
+  ButtonText,
+  ButtonContainer
+} from "./styles";
 
 class Cart extends Component {
 
   static propTypes = {
-    orders: PropTypes.arrayOf(
+    cart: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number,
         size: PropTypes.string,
@@ -24,8 +32,16 @@ class Cart extends Component {
       })
     ).isRequired,
 
-    total: PropTypes.number,
+    addOrderRequest: PropTypes.function,
+    cartFailed: PropTypes.function,
+    removeOrderRequest: PropTypes.function,
+    endOrderRequest: PropTypes.function,
+    endOrderSuccess: PropTypes.function,
+    getCart: PropTypes.function,
+    getCartSuccess: PropTypes.function,
 
+    total: PropTypes.number,
+    error: PropTypes.bool,
     orders: PropTypes.arrayOf(PropTypes.number).isRequired
   }
 

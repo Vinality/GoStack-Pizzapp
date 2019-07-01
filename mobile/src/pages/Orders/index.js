@@ -24,7 +24,10 @@ class Orders extends Component {
         total: PropTypes.number,
         when: PropTypes.string,
       })
-    ).isRequired
+    ).isRequired,
+    getOrderRequest: PropTypes.function,
+    orderSuccess: PropTypes.function,
+    orderFailed: PropTypes.function,
   }
 
   componentDidMount() {

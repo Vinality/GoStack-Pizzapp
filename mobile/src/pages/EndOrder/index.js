@@ -29,7 +29,15 @@ class EndOrder extends Component {
 
   static propTypes = {
     total: PropTypes.number.isRequired,
-    orders: PropTypes.arrayOf(PropTypes.number).isRequired
+    orders: PropTypes.arrayOf(PropTypes.number).isRequired,
+
+    addOrderRequest: PropTypes.function,
+    cartFailed: PropTypes.function,
+    removeOrderRequest: PropTypes.function,
+    endOrderRequest: PropTypes.function,
+    endOrderSuccess: PropTypes.function,
+    getCart: PropTypes.function,
+    getCartSuccess: PropTypes.function,
   }
 
   state = {

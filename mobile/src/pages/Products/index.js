@@ -30,7 +30,11 @@ class Products extends Component {
         image_url: PropTypes.string,
         description: PropTypes.string,
       })
-    ).isRequired
+    ).isRequired,
+    productRequest: PropTypes.function,
+    productFailed: PropTypes.function,
+    productSuccess: PropTypes.function,
+    setCurrentProd: PropTypes.function,
   }
 
   componentDidMount() {

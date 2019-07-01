@@ -24,6 +24,11 @@ class Login extends Component {
   static propTypes = {
     loading: PropTypes.bool,
     error: PropTypes.bool,
+    loginRequest: PropTypes.function,
+    signupRequest: PropTypes.function,
+    signupSuccess: PropTypes.function,
+    userSuccess: PropTypes.function,
+    userFailed: PropTypes.function
   }
 
   state = {

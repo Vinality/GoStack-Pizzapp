@@ -28,7 +28,10 @@ class Types extends Component {
         type: PropTypes.string,
         image_url: PropTypes.string
       })
-    ).isRequired
+    ).isRequired,
+    typeRequest: PropTypes.function,
+    typeSuccess: PropTypes.function,
+    typeFailed: PropTypes.function,
   }
 
   componentDidMount() {
