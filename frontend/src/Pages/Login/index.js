@@ -4,8 +4,16 @@ import { Container, Form, Input, Logo, Button } from "./styles";
 import { Creators as UsersActions } from "../../store/ducks/user";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import PropTypes from 'prop-types';
 
 class Login extends Component {
+
+  static propTypes = {
+    UserLoginRequest: PropTypes.func.isRequired,
+    UserLoginSuccess: PropTypes.func.isRequired,
+    UserLoginFailure: PropTypes.func.isRequired,
+  }
+
   state = {
     email: '',
     pass: ''

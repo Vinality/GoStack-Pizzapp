@@ -29,9 +29,10 @@ class Sizes extends Component {
         size_url: PropTypes.string
       })
     ).isRequired,
-    sizeRequest: PropTypes.function,
-    sizeFailed: PropTypes.function,
-    sizeSuccess: PropTypes.function
+
+    sizeRequest: PropTypes.func.isRequired,
+    sizeFailed: PropTypes.func.isRequired,
+    sizeSuccess: PropTypes.func.isRequired
   }
 
   componentDidMount() {

@@ -12,9 +12,7 @@ export function* UserLogin(action) {
     });
 
     if(data.isCust !== false) {
-      throw {
-        message:'Only admins allowed'
-      };
+      throw new Error('Only admins allowed');
     }
 
     localStorage.setItem('@pizzapp', data.auth.token);
@@ -23,7 +21,7 @@ export function* UserLogin(action) {
     yield put(push("/dashboard"));
   } catch (err) {
 
-    toast.error(err.message, {
+    toast.error(err, {
       position: toast.POSITION.TOP_RIGHT,
       autoClose: 2000
     });

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import img from "../../resources/fundo.jpg";
 
 export const Container = styled.div`
   display: flex;
@@ -10,7 +9,7 @@ export const Container = styled.div`
   flex-wrap: wrap;
   width: 50%;
   margin-bottom: 20px;
-  height: 200px;
+  height: 250px;
   padding: 20px;
   box-shadow: 0px 0px 20px #e0e1e2;
 `;
@@ -21,10 +20,17 @@ export const Title = styled.h1`
 
 export const When = styled.h2`
   width: 100%;
+  font-size: 12px;
+  color: #706e7b;
+  margin-left: 11px;
+`
+
+export const Obs = styled.h2`
+  width: 100%;
   font-size: 15px;
   color: #706e7b;
   margin-left: 11px;
-  border-bottom: 1px solid #d9dce0;
+  border-top: 1px solid #d9dce0;
 `
 
 export const Type = styled.p`
@@ -34,6 +40,8 @@ export const Type = styled.p`
 
 export const Total = styled.h1`
   width: 100%;
+  margin-bottom: 2px;
+  border-bottom: 1px solid #d9dce0;
 `
 
 export const Size = styled.p`
@@ -51,6 +59,7 @@ export const Product = styled.div`
   display: flex;
   padding: 8px;
   margin-top: 15px;
+  margin-bottom: 15px;
   margin-left: 10px;
   border-radius: 10px;
   align-items: center;

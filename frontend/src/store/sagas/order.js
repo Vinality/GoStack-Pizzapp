@@ -1,5 +1,4 @@
 import { call, put } from "redux-saga/effects";
-import { push } from "connected-react-router";
 import api from "../../services/api";
 import { Creators as OrderActions } from "../ducks/order";
 
@@ -17,6 +16,7 @@ export function* GetOrders(action) {
       {
         when: order.created_at,
         user: order.user.username,
+        total: order.total,
         obs: order.obs,
         address: order.address,
         products: [

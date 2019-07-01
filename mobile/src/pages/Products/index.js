@@ -31,10 +31,10 @@ class Products extends Component {
         description: PropTypes.string,
       })
     ).isRequired,
-    productRequest: PropTypes.function,
-    productFailed: PropTypes.function,
-    productSuccess: PropTypes.function,
-    setCurrentProd: PropTypes.function,
+    productRequest: PropTypes.func.isRequired,
+    productFailed: PropTypes.func.isRequired,
+    productSuccess: PropTypes.func.isRequired,
+    setCurrentProd: PropTypes.func.isRequired,
   }
 
   componentDidMount() {
