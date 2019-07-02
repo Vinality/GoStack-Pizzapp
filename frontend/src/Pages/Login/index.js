@@ -9,9 +9,10 @@ import PropTypes from 'prop-types';
 class Login extends Component {
 
   static propTypes = {
-    UserLoginRequest: PropTypes.func.isRequired,
-    UserLoginSuccess: PropTypes.func.isRequired,
-    UserLoginFailure: PropTypes.func.isRequired,
+    userLoginRequest: PropTypes.func.isRequired,
+    userLoginSuccess: PropTypes.func.isRequired,
+    userLoginFailure: PropTypes.func.isRequired,
+    userLogout: PropTypes.func.isRequired
   }
 
   state = {
@@ -20,10 +21,10 @@ class Login extends Component {
   }
 
   handleLogin = () => {
-    const { UserLoginRequest } = this.props;
+    const { userLoginRequest } = this.props;
     const { email, pass } = this.state;
 
-    UserLoginRequest(email, pass);
+    userLoginRequest(email, pass);
   }
 
   render() {

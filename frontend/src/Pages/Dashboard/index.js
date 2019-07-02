@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Creators as OrderActions } from "../../store/ducks/order";
 import { connect } from "react-redux";
+import { Creators as OrderActions } from "../../store/ducks/order";
 import { bindActionCreators } from "redux";
 import { Container, Orders } from './styles';
 import Header from '../../components/Header'
@@ -10,9 +10,6 @@ import PropTypes from 'prop-types';
 class Dashboard extends Component {
 
   static propTypes = {
-    GetOrdersRequest: PropTypes.func.isRequired,
-    GetOrdersSuccess: PropTypes.func.isRequired,
-    GetOrdersFailure: PropTypes.func.isRequired,
 
     orders: PropTypes.shape({
       when: PropTypes.instanceOf(Date),
@@ -51,7 +48,6 @@ class Dashboard extends Component {
       </Container>
     );
   }
-
 }
 
 const mapStateToProps = state => ({

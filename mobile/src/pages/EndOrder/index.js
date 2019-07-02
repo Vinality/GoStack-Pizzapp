@@ -31,13 +31,13 @@ class EndOrder extends Component {
     total: PropTypes.number.isRequired,
     orders: PropTypes.arrayOf(PropTypes.number).isRequired,
 
-    addOrderRequest: PropTypes.function,
-    cartFailed: PropTypes.function,
-    removeOrderRequest: PropTypes.function,
-    endOrderRequest: PropTypes.function,
-    endOrderSuccess: PropTypes.function,
-    getCart: PropTypes.function,
-    getCartSuccess: PropTypes.function,
+    addOrderRequest: PropTypes.func.isRequired,
+    cartFailed: PropTypes.func.isRequired,
+    removeOrderRequest: PropTypes.func.isRequired,
+    endOrderRequest: PropTypes.func.isRequired,
+    endOrderSuccess: PropTypes.func.isRequired,
+    getCart: PropTypes.func.isRequired,
+    getCartSuccess: PropTypes.func.isRequired,
   }
 
   state = {

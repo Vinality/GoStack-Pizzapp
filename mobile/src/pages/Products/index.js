@@ -65,8 +65,8 @@ class Products extends Component {
               onPress={() => navigation.navigate('Cart')}
             />
           </Header>
-          {products && products.map(product => (
-            <ProductCard product={product} key={product.id} navigation={navigation}/>
+          {products && products.map((product, i) => (
+            <ProductCard product={product} key={i} navigation={navigation}/>
           ))}
         </ProductList>}
       </Background>

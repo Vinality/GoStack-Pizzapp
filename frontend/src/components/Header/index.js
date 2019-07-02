@@ -10,9 +10,15 @@ class Header extends Component {
 
   static propTypes = {
     name: PropTypes.string.isRequired,
-    UserLoginRequest: PropTypes.func.isRequired,
-    UserLoginSuccess: PropTypes.func.isRequired,
-    UserLoginFailure: PropTypes.func.isRequired,
+    userLoginRequest: PropTypes.func.isRequired,
+    userLoginSuccess: PropTypes.func.isRequired,
+    userLoginFailure: PropTypes.func.isRequired,
+    userLogout: PropTypes.func.isRequired,
+  }
+
+  handleLogout = () => {
+    const { userLogout } = this.props;
+    userLogout();
   }
 
   render() {
@@ -24,7 +30,7 @@ class Header extends Component {
         <h1>Pizzaria DonJuan</h1>
         <div>
           <h1 className='nome'>{name}</h1>
-          <h1 className='logout'>Sair do App</h1>
+          <h1 className='logout' onClick={this.handleLogout}>Sair do App</h1>
         </div>
       </Container>
     );

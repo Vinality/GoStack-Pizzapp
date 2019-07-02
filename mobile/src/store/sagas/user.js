@@ -9,12 +9,16 @@ export function* UserLogin(action) {
   try {
     const { username, password } = action.payload;
     const { data } = yield call(api.post, '/session', { email: username, password });
+    if(data.isCust === false) {
+      throw new Error('Apenas clientes podem entrar!');
+    }
+
     yield call(storeToken, data.auth.token);
     yield put(UserAction.userSuccess(data.username));
 
     navigate("Products");
   } catch (error) {
-    yield put(UserAction.userFailed());
+    yield put(UserAction.userFailed(error.message));
   }
 }
 
@@ -26,7 +30,7 @@ export function* UserSignup(action) {
 
     navigate("Login");
   } catch (error) {
-    yield put(UserAction.userFailed());
+    yield put(UserAction.userFailed(error.message));
   }
 }
 

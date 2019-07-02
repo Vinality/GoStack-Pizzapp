@@ -12,7 +12,7 @@ export const Types = {
 
 const INITIAL_STATE = {
   username: null,
-  error: false,
+  error: null,
   loading: false
 };
 
@@ -25,19 +25,22 @@ export default function user(state = INITIAL_STATE, action) {
       return {
         ...state,
         username: action.payload.username,
-        error: false,
         loading: false
       };
 
     case Types.signupsuccess:
       return {
         ...state,
-        error: false,
+        error: null,
         loading: false
       }
 
     case Types.failed:
-      return { ...state, error: true, loading: false };
+      return {
+        ...state,
+        error: action.payload.error,
+        loading: false
+      };
 
     default:
       return state;
@@ -67,7 +70,8 @@ export const Creators = {
     payload: { username }
   }),
 
-  userFailed: () => ({
-    type: Types.failed
+  userFailed: error => ({
+    type: Types.failed,
+    payload: { error }
   })
 };

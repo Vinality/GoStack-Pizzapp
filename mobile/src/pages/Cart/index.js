@@ -30,15 +30,15 @@ class Cart extends Component {
         name: PropTypes.string,
         type: PropTypes.string
       })
-    ).isRequired,
+    ),
 
-    addOrderRequest: PropTypes.function,
-    cartFailed: PropTypes.function,
-    removeOrderRequest: PropTypes.function,
-    endOrderRequest: PropTypes.function,
-    endOrderSuccess: PropTypes.function,
-    getCart: PropTypes.function,
-    getCartSuccess: PropTypes.function,
+    addOrderRequest: PropTypes.func.isRequired,
+    cartFailed: PropTypes.func.isRequired,
+    removeOrderRequest: PropTypes.func.isRequired,
+    endOrderRequest: PropTypes.func.isRequired,
+    endOrderSuccess: PropTypes.func.isRequired,
+    getCart: PropTypes.func.isRequired,
+    getCartSuccess: PropTypes.func.isRequired,
 
     total: PropTypes.number,
     error: PropTypes.bool,
@@ -66,8 +66,8 @@ class Cart extends Component {
           <Title>R${total}</Title>
         </Header>
         <ProductList>
-          {cart && cart.map(product => (
-            <CartCard product={product} />
+          {cart && cart.map((product, i) => (
+            <CartCard product={product} key={i}/>
           ))}
         </ProductList>
         {orders.length !== 0 &&

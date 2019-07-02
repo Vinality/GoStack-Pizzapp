@@ -25,9 +25,9 @@ class Orders extends Component {
         when: PropTypes.string,
       })
     ).isRequired,
-    getOrderRequest: PropTypes.function,
-    orderSuccess: PropTypes.function,
-    orderFailed: PropTypes.function,
+    getOrderRequest: PropTypes.func.isRequired,
+    orderSuccess: PropTypes.func.isRequired,
+    orderFailed: PropTypes.func.isRequired,
   }
 
   componentDidMount() {
@@ -51,8 +51,8 @@ class Orders extends Component {
           </Header>
 
             <OrderList>
-            {orders && orders.map(order => (
-              <OrderCard order={order} />
+            {orders && orders.map((order, i) => (
+              <OrderCard order={order} key={i}/>
             ))}
             </OrderList>
       </Background>

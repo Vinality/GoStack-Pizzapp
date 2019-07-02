@@ -58,8 +58,8 @@ class Sizes extends Component {
             <Title>Selecione um tamanho</Title>
           </Header>
           <SizeList>
-          {sizes && sizes.map(size => (
-            <SizeCard size={size} key={size.id}/>
+          {sizes && sizes.map((size, i) => (
+            <SizeCard size={size} key={i}/>
           ))}
           </SizeList>
           {error && <Error>Máximo de 3 items por pedido</Error>}

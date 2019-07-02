@@ -17,15 +17,20 @@ export function* UserLogin(action) {
 
     localStorage.setItem('@pizzapp', data.auth.token);
 
-    yield put(UsersActions.UserLoginSuccess(data.username));
+    yield put(UsersActions.userLoginSuccess(data.username));
     yield put(push("/dashboard"));
   } catch (err) {
-
-    toast.error(err, {
+    console.tron.log(err);
+    toast.error(err.message, {
       position: toast.POSITION.TOP_RIGHT,
       autoClose: 2000
     });
 
-    yield put(UsersActions.UserLoginFailure(err));
+    yield put(UsersActions.userLoginFailure(err));
   }
+}
+
+export function* UserLogout(action) {
+  localStorage.removeItem('@pizzapp');
+  yield put(push("/"));
 }

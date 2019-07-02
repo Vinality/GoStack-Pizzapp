@@ -23,7 +23,7 @@ class Login extends Component {
 
   static propTypes = {
     loading: PropTypes.bool,
-    error: PropTypes.bool,
+    error: PropTypes.string,
 
     loginRequest: PropTypes.func.isRequired,
     signupRequest: PropTypes.func.isRequired,
@@ -52,7 +52,7 @@ class Login extends Component {
       <Background source={fundo}>
         <Container>
           <Img source={logo} />
-          {error && <Error>Usuário ou senha incorretos</Error>}
+          {error && <Error>{error}</Error>}
           <Input
             value={username}
             onChangeText={text => this.setState({ username: text })}

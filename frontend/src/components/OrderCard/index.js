@@ -25,18 +25,14 @@ class OrderCard extends Component {
         <When>{momento.startOf('day').fromNow()}</When>
         <Total>R${order.total}</Total>
         {order.products.map((prod, i) => (
-          // if(prod.size) {
-            // return(
-            prod.size &&
-              <Product key={i}>
-                <Img src={prod.image_url}/>
-                <div>
-                  <Type>{prod.product} {prod.type}</Type>
-                  <Size>{prod.size}: R${prod.price}</Size>
-                </div>
-              </Product>
-            // )
-          // }
+          prod.size &&
+            <Product key={i}>
+              <Img src={prod.image_url}/>
+              <div>
+                <Type>{prod.product} {prod.type}</Type>
+                <Size>{prod.size}: R${prod.price}</Size>
+              </div>
+            </Product>
         ))}
         <Obs>Observações: {order.obs}</Obs>
       </Container>

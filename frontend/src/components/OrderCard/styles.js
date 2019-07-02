@@ -30,6 +30,7 @@ export const Obs = styled.h2`
   font-size: 15px;
   color: #706e7b;
   margin-left: 11px;
+  padding: 8px;
   border-top: 1px solid #d9dce0;
 `
 

@@ -29,7 +29,7 @@ class Types extends Component {
         image_url: PropTypes.string
       })
     ).isRequired,
-    
+
     typeRequest: PropTypes.func.isRequired,
     typeSuccess: PropTypes.func.isRequired,
     typeFailed: PropTypes.func.isRequired,
@@ -58,8 +58,8 @@ class Types extends Component {
             <Title>Selecione um tipo</Title>
           </Header>
           <TypeList>
-          {types && types.map(type => (
-            <TypeCard type={type} key={type.id} />
+          {types && types.map((type, i) => (
+            <TypeCard type={type} key={i} />
           ))}
           </TypeList>
         </Container>}
