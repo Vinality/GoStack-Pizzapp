@@ -20,8 +20,7 @@ export function* UserLogin(action) {
     yield put(UsersActions.userLoginSuccess(data.username));
     yield put(push("/dashboard"));
   } catch (err) {
-    console.tron.log(err);
-    toast.error(err.message, {
+    toast.error(err.response.data[0].message, {
       position: toast.POSITION.TOP_RIGHT,
       autoClose: 2000
     });
