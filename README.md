@@ -1,6 +1,6 @@
 # GoStack-Pizzapp
 
-## This application was built as the final assignment for the Rocketseat Bootcamp (fifth edition). Based on Node.js, React.js and React Native.
+```This application was built as the final assignment for the Rocketseat Bootcamp (fifth edition). Based on Node.js, React.js and React Native.```
 
 ## Backend - Node.js
 ### REST API built using Adonis.js which is a Node.js framework. The API consists of a MVC application.
@@ -41,4 +41,5 @@
 * React Toastify for notifications
 * Axios for API calls
 
+![alt text](https://raw.githubusercontent.com/Vinality/GoStack-Pizzapp/master/images/front.png)
 
