@@ -35,6 +35,7 @@
 * Redux Sagas
 * Duck Patterns
 * Auth token on localStorage
+* PropTypes validation
 * Flex Box styles
 * Styled Components
 * Moment.js for Date parsing
@@ -42,4 +43,22 @@
 * Axios for API calls
 
 ![alt text](https://raw.githubusercontent.com/Vinality/GoStack-Pizzapp/master/images/front.png)
+
+## Mobile - React Native
+### Mobile app for clients only that allows users to browse items and order products
+
+### Screens:
+* Login
+* Signup
+* Products (Pizzas, Drinks)
+* Product Types (Pizza flavors, drink brand)
+* Size (Large, medium, small, 300ml)
+* Cart
+* Previous Orders
+* Finish Order
+
+### Features:
+The mobile version features most of the ones cited above on the React Web App, it also includes the [CEP Promise API](https://github.com/filipedeschamps/cep-promise) by Filipe Deschamps to fill in the address as the user inputs the zipcode.
+
+![alt text](https://raw.githubusercontent.com/Vinality/GoStack-Pizzapp/master/images/mobile.png)
 
