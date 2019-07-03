@@ -14,7 +14,7 @@
 ### Routes: 
 * **/users** - POST - Registers a new User.
 * **/session** - POST - Authenticates an User.
-* Auth-only routes routes:
+* Auth-only routes:
   * **/prod** - POST - Registers a new Product.
   * **/type** - POST - Registers a new Type for a given Product.
   * **/size** - POST - Registers a new Size for a given Type.
