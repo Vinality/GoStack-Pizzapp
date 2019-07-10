@@ -23,7 +23,7 @@ This application was built as the final assignment for the Rocketseat Bootcamp (
   * **/menu/size:type** - GET - Shows all the possible Sizes for a given Type of product.
   * **/cart** - POST - Returns all data related to the id's requested.
   * **/order** - POST - Creates a new Order with the user_id, address, observations and the products.
-  * **/order** - GET - If the current user is and administrator, it returns all Orders from all user. Else, it returns all Orders made by the current customer.
+  * **/order** - GET - If the current user is an administrator, it returns all Orders from all user. Else, it returns all Orders made by the current customer.
 
 ## Frontend - React.js
 ### Simple app for administrators only to see all current Orders listed with information such as products, total price, address and observations.
