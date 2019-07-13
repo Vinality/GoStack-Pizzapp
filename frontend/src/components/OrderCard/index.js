@@ -13,7 +13,6 @@ import React, { Component } from 'react';
 import moment from 'moment/min/moment-with-locales';
 moment.locale('pt-br');
 
-
 class OrderCard extends Component {
 
   render() {
