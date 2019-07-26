@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex: 1;
@@ -8,7 +8,7 @@ export const Container = styled.View`
 `;
 
 export const Input = styled.TextInput.attrs({
-  placeholderTextColor: '#999'
+  placeholderTextColor: "#999"
 })`
   background: #fff;
   border-radius: 4px;
@@ -40,19 +40,19 @@ export const Error = styled.Text`
   text-align: center;
   font-size: 16px;
   font-weight: bold;
-`
+`;
 
 export const Img = styled.Image`
   margin-left: 130px;
   margin-bottom: 20px;
-`
+`;
 
 export const Background = styled.ImageBackground`
   flex: 1;
   resize-mode: cover;
   width: 100%;
   height: 100%;
-`
+`;
 
 export const TextSign = styled.Text`
   margin-left: 60px;
